@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html mip>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+    <title><!-- 标题 --></title>
+    <link rel="stylesheet" type="text/css" href="https://mipcache.bdstatic.com/static/v1/mip.css">
+    <link rel="canonical" href="对应的原页面地址">
+    <style mip-custom>
+    /* 自定义样式 */
+    </style>
+</head>
+<body>
+<!-- 正文 -->
+<p>支持source播放，暂停，拖动进度。</p>
+<p>不循环播放</p>
+source src="horse.ogg"<br>
+source src="horse.mp3"<br><br>
+<mip-audio 
+    controls
+    height="50">
+    <source src="horse.ogg">
+    <source src="horse.mp3">
+    您的浏览器不支持音频播放。请更换
+</mip-audio>
+<p>上方有个audio</p>
+
+<script src="https://mipcache.bdstatic.com/static/v1/mip.js"></script>
+<script src="mip-audio.js"></script>
+
+</body>
+</html>
