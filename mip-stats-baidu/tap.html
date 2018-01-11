@@ -38,7 +38,7 @@ mip-lightbox {
     border: 1px solid #ccc;
 }
 </style>
-<button id="btn-open" data-stats-baidu-obj="%7B%22type%22%3A%22click%22%2C%22data%22%3A%22%5B_trackPageview%2C%20%2Fmip-stats%2Fsheji%5D%22%7D">
+<button id="btn-open" on="tap:my-lightbox.open" data-stats-baidu-obj="%7B%22type%22%3A%22click%22%2C%22data%22%3A%22%5B_trackPageview%2C%20%2Fmip-stats%2Fsheji%5D%22%7D">
     点击打开弹层，触发统计 mip-stats%2Fsheji
 </button>
 
@@ -63,6 +63,10 @@ mip-lightbox {
 
 <button data-stats-baidu-obj='{"type":"click","data":["_trackPageview", "/virtual/login2"]}'>
    点击直接触发统计 virtual/login2
+</button>
+
+<button data-stats-baidu-obj='{"type":"click","data":"[_trackPageview, /virtual/login3]"}'>
+   点击直接触发统计 virtual/login3
 </button>
 
 <mip-stats-baidu token="02890d4a309827eb62bc3335b2b28f7f"></mip-stats-baidu>
