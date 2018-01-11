@@ -15,7 +15,7 @@
 mip-lightbox {
     padding: 10px;
 }
-#btn-open, .lightbox-close {
+#btn-open, .lightbox-close ,button, a{
     border: 1px solid #f1f1f1;
     border-radius: 5px;
     padding: 10px 20px;
@@ -39,7 +39,7 @@ mip-lightbox {
 }
 </style>
 <button id="btn-open" data-stats-baidu-obj="%7B%22type%22%3A%22click%22%2C%22data%22%3A%22%5B_trackPageview%2C%20%2Fmip-stats%2Fsheji%5D%22%7D">
-    触发统计
+    点击打开弹层，触发统计 mip-stats%2Fsheji
 </button>
 
 <mip-lightbox
@@ -56,18 +56,21 @@ mip-lightbox {
     </div>
 </mip-lightbox>
 
-<div data-stats-baidu-obj="%7B%22type%22:%22click%22,%22data%22:%22%5B_trackPageview,%20/virtual/login%5D%22%7D">
-    我是自动触发
-</div>
+<a href="www.baidu.com" target="_blank" data-stats-baidu-obj="%7B%22type%22:%22click%22,%22data%22:%22%5B_trackPageview,%20/virtual/login%5D%22%7D">
+    点击跳转，并触发统计 virtual/login
+</a>
 
+
+<button data-stats-baidu-obj='{"type":"click","data":["_trackPageview", "/virtual/login2"]}'>
+   点击直接触发统计 virtual/login2
+</button>
 
 <mip-stats-baidu token="02890d4a309827eb62bc3335b2b28f7f"></mip-stats-baidu>
-    
    
     
 <script src="https://mipcache.bdstatic.com/static/v1/mip.js"></script>
 <script src="https://mipcache.bdstatic.com/static/v1/mip-lightbox/mip-lightbox.js"></script>
-<script src="https://c.mipcdn.com/static/v1/mip-stats-baidu/mip-stats-baidu.js"></script>
+<script src="mip-stats-baidu.js"></script>
 
 </body>
 </html>
