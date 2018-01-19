@@ -23,6 +23,8 @@
 </head>
 <body class="home-template nav-closed">
 
+    <img class="web-plan-img" src="https://open-web.bj.bcebos.com/site%2Fv1%2Ftool-mip.jpg" height="264"
+                                 width="351">
     <div class="header-container container grid-960">
     <div class="nav-wrapper">
         <mip-fixed type="top">
@@ -101,66 +103,7 @@
     <div class="site-wrapper">
 
         <div class="wrapper">
-    <div class="header" id="top">
-        <div class="header-container container grid-960">
-            <!-- 导航栏以下部分大图片 -->
-            <div class="summary-wrapper">
-                <div class="summary-content">
-                    
-                </div>
-            </div>
-        </div>
-        <div class="header-links">
-            <div class="container grid-960">
-                <ul class="columns ">
-                    <li class="column col-3 col-md-6 col-xs-12">
-                        <a href="/doc/design/summary.html"
-                           class="minus-margin hover-shadow">
-                            <mip-img class="recommend-icon" src="https://open-web.bj.bcebos.com/site%2Fv1%2Fdoc-icon.png" alt=""
-                                     layout="fixed" height="35" width="35"></mip-img>
-                            <div class="recommend">
-                                <h4 class="font-title">设计指南</h4>
-                                <span class="font-descri">页面排版 交互设计</span>
-                            </div>
-                        </a>
-                    </li>
-                    <li class="column col-3 col-md-6 col-xs-12">
-                        <a href="/doc/tech/fis.html"
-                           class="minus-margin hover-shadow">
-                            <mip-img class="recommend-icon" src="https://open-web.bj.bcebos.com/site%2Fv1%2Fdoc-icon.png" alt=""
-                                     layout="fixed" height="35" width="35"></mip-img>
-                            <div class="recommend">
-                                <h4 class="font-title">前端技术</h4>
-                                <span class="font-descri">前端工程化Web方案</span>
-                            </div>
-                        </a>
-                    </li>
-                    <li class="column col-3 col-md-6 col-xs-12">
-                        <a href="/doc/security/https-pratice-1.html"
-                           class="minus-margin hover-shadow">
-                            <mip-img class="recommend-icon" src="https://open-web.bj.bcebos.com/site%2Fv1%2Fdoc-icon.png" alt=""
-                                     layout="fixed" height="35" width="35"></mip-img>
-                            <div class="recommend">
-                                <h4 class="font-title">建站安全</h4>
-                                <span class="font-descri">HTTPS知识及经验分享</span>
-                            </div>
-                        </a>
-                    </li>
-                    <li class="column col-3 col-md-6 col-xs-12">
-                        <a href="/doc/seo/search-engine-optimization-guide.html"
-                           class="minus-margin hover-shadow">
-                            <mip-img class="recommend-icon" src="https://open-web.bj.bcebos.com/site%2Fv1%2Fdoc-icon.png" alt=""
-                                     layout="fixed" height="35" width="35"></mip-img>
-                            <div class="recommend">
-                                <h4 class="font-title">SEO</h4>
-                                <span class="font-descri">搜索引擎原理</span>
-                            </div>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div>
+    
 
     <!-- 行业新闻 -->
     <div class="container grid-960 news" id="news">
@@ -243,6 +186,16 @@
         <div class="subheader-main">Web方案</div>
         <div class="web-plan-content">
             <ul class="columns">
+            <li class="column col-3 col-md-6 col-xs-12">
+                    <a target="_blank" href="https://www.mipengine.org/" class="hover-shadow">
+                        <mip-img class="web-plan-img" src="https://open-web.bj.bcebos.com/site%2Fv1%2Ftool-mip.jpg" layout="responsive" height="264"
+                                 width="351"></mip-img>
+                        <div class="web-plan-title">MIP</div>
+                    </a>
+                    <div class="font-descri">
+                        MIP 是一套应用于移动网页的开放性技术标准，使用 MIP 后无需等待加载，页面内容将以更友好的方式瞬时到达用户。
+                    </div>
+                </li>
                 <li class="column col-3 col-md-6 col-xs-12">
                     <a target="_blank" href="https://www.mipengine.org/" class="hover-shadow">
                         <mip-img class="web-plan-img" src="https://open-web.bj.bcebos.com/site%2Fv1%2Ftool-mip.jpg" layout="responsive" height="264"
@@ -392,7 +345,9 @@
 
     <mip-stats-baidu token="c7d52dcc025ace5582c34ce31e4b4552"></mip-stats-baidu>
     <mip-stats-baidu token="3abe3fb0969d25e335f1fe7559defcc6"></mip-stats-baidu>
-    <script src="https://mipcache.bdstatic.com/static/v1/mip.js"></script>
+    <script src="http://172.24.136.187:8000/miplocal/dist/mip.js"></script>
+    
+    <!-- <script src="https://mipcache.bdstatic.com/static/v1/mip.js"></script> -->
     <script src="https://mipcache.bdstatic.com/static/v1/mip-form/mip-form.js"></script>
     <script src="https://mipcache.bdstatic.com/static/v1/mip-fixed/mip-fixed.js"></script>
     <script src="https://mipcache.bdstatic.com/static/v1/mip-sidebar/mip-sidebar.js"></script>
