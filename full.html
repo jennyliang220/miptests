@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>全屏滚动测试demo</title>
+    <meta name="author" content="JennyL of Comboom" />
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.bootcss.com/fullPage.js/2.9.4/jquery.fullpage.css" />
+
+    <link rel="dns-prefetch" href="https://cdn.bootcss.com/">
+
+    <style>
+        .section {
+            padding: 20px 50px;
+        }
+        p {
+            color: rgba(0, 0, 0, 0.6);
+            font-weight: normal
+        }
+        .fp-controlArrow.fp-next {
+            border-width: 8.5px 0 8.5px 14px;
+        }
+         .fp-controlArrow.fp-prev {
+            border-width: 8.5px 14px 8.5px 0;
+         }
+    </style>
+</head>
+<body>
+<div id="fullpage">
+    <div class="section active" id="section0">
+        <h1>Comboom 介绍</h1>
+        <p>Comboom 是一个旨在创建有传播性H5的小团伙</p>
+    </div>
+    <div class="section" id="section1">
+        <div class="slide active">
+            <div class="intro">
+                <h1>团员介绍</h1>
+                <ul>
+                    <li>国宝-思博</li>
+                    <li>活宝-思润</li>
+                    <li>码神-子皓</li>
+                    <li>美神-雨薇</li>
+                    <li>姓粗-佳莹</li>
+                </ul>
+            </div>
+        </div>
+        <div class="slide">
+            <div class="intro">
+                <h1>国宝-思博</h1>
+                <p>这人没救了哈哈哈哈</p>
+            </div>
+        </div>
+        <div class="slide">
+            <div class="intro">
+                <h1>活宝-思润</h1>
+                <p>这人没救了哈哈哈哈</p>
+            </div>
+        </div>
+        <div class="slide">
+            <div class="intro">
+                <h1>码神-子皓</h1>
+                <p>这人没救了哈哈哈哈</p>
+            </div>
+        </div>
+        <div class="slide">
+            <div class="intro">
+                <h1>美神-雨薇</h1>
+                <p>这人没救了哈哈哈哈</p>
+            </div>
+        </div>
+        <div class="slide">
+            <div class="intro">
+                <h1>姓粗-佳莹</h1>
+                <p>这人没救了哈哈哈哈</p>
+            </div>
+        </div>
+    </div>
+    <div class="section" id="section2">
+        <div class="intro">
+            <h1>我们的工作</h1>
+            <p>脑洞大过天，写码如有神</p>
+        </div>
+    </div>
+    <div class="section" id="section3">
+        <div class="intro">
+            <h1>我们的目标</h1>
+            <p>
+                跟靠谱的小伙伴，做出H5的标杆产品。
+            </p>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdn.bootcss.com/fullPage.js/2.9.4/jquery.fullpage.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('#fullpage').fullpage({
+            sectionsColor: ['#1bbc9b', '#4BBFC3', '#7BAABE', 'whitesmoke', '#ccddff'],
+            anchors: ['firstPage', 'secondPage', '3rdPage', '4thpage', 'lastPage'],
+            menu: '#menu',
+            css3: true,
+            scrollingSpeed: 300
+        });
+    });
+</script>
+
+</body>
+</html>
