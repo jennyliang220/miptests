@@ -13,68 +13,151 @@
     <link rel="dns-prefetch" href="https://cdn.bootcss.com/">
 
     <style>
-        .section {
-            padding: 20px 50px;
-        }
-        p {
-            color: rgba(0, 0, 0, 0.6);
-            font-weight: normal
-        }
         .fp-controlArrow.fp-next {
             border-width: 8.5px 0 8.5px 14px;
         }
-         .fp-controlArrow.fp-prev {
+        .fp-controlArrow.fp-prev {
             border-width: 8.5px 14px 8.5px 0;
-         }
+        }
+        #section0,
+        #section1,
+        #section2,
+        #section3 {
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        #section0 {
+            background-image: url(image/1-poster.jpg);
+        }
+        .s0-door-left,
+        .s0-door-right {
+            background-size: cover;
+            background-repeat: no-repeat;
+            width: 50%;
+            position: absolute;
+            height: 100%;
+            top: 0;
+            left: 0;
+            animation: 0.5s ease-in-out 1s;
+            animation-fill-mode: forwards;
+        }
+        .s0-door-left {
+            background-image: url(image/1-left.png);
+            animation-name: slide-left;
+        }
+
+        .s0-door-right {
+            background-image: url(image/1-right.png);
+            left: 50%;
+            animation-name: slide-right;
+        }
+
+        @keyframes slide-left {
+            from { transform: translateX(0); }
+            to   { transform: translateX(-300px); }
+        }
+
+        @keyframes slide-right {
+            from { transform: translateX(0); }
+            to   { transform: translateX(300px); }
+        }
+        .s0-title {
+            position: absolute;
+            width: 300px;
+            height: 128px;
+            padding-bottom: 50%;
+            transform: translateX(-50%);
+            left: 50%;
+            top: 60%;
+        }
+        .s0-title-left,
+        .s0-title-right {
+            background: url(image/1-title.png) no-repeat;
+            background-size: cover;
+            width: 50%;
+            height: 50%;
+            position: absolute;
+            animation: 0.5s ease-in-out 1s;
+            animation-name: slide-left;
+            animation-fill-mode: forwards;
+        }
+        .s0-title-right {
+            background-image: url(image/1-title.png);
+            background-position: 100% 0;
+            left: 50%;
+            animation-name: slide-right;
+        }
+
+        #section1 {
+            background-image: url(image/2-poster.jpg);
+        }
+        .s1-confirm-wrap {
+            margin: -65% 20px 0 20px;
+            padding: 20px 40px;
+            display: block;
+            background-color: rgba(255, 255, 255, 0.5);
+            border: 1px solid white;
+            border-radius: 10px;
+            position: relative;
+            overflow: hidden;
+        }
+        .s1-question {
+            margin: 0 0 10px;
+            font-size: 20px;
+            line-height: 1.5;
+        }
+        .s1-button {
+            padding: 8px;
+            border: 1px solid rgba(0, 0, 0, 0.7);
+            border-radius: 10px;
+            background: white;
+            font-size: 18px;
+            display: inline-block;
+            width: 100px;
+            text-align: center;
+        }
+        #s1-boy {
+            float: right;
+            right: 40px;
+        }
+        .s1-mask {
+            background: rgba(0, 0, 0, 0.8);
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        .s1-mask .s1-confirm-wrap {
+            z-index: 1;
+        }
     </style>
 </head>
 <body>
 <div id="fullpage">
     <div class="section active" id="section0">
-        <h1>Comboom 介绍</h1>
-        <p>Comboom 是一个旨在创建有传播性H5的小团伙</p>
+        <div class="s0-door-left"></div>
+        <div class="s0-door-right"></div>
+        <div class="s0-title">
+            <div class="s0-title-left"></div>
+            <div class="s0-title-right"></div>
+        </div>
     </div>
     <div class="section" id="section1">
-        <div class="slide active">
-            <div class="intro">
-                <h1>团员介绍</h1>
-                <ul>
-                    <li>国宝-思博</li>
-                    <li>活宝-思润</li>
-                    <li>码神-子皓</li>
-                    <li>美神-雨薇</li>
-                    <li>姓粗-佳莹</li>
-                </ul>
-            </div>
+        <div class="s1-confirm-wrap">
+            <p class="s1-question">过年回家，<br>带谁上路戏最足？</p>
+            <span class="s1-button" id="s1-girl">A. 太子妃</span>
+            <span class="s1-button" id="s1-boy">B. 太子</span>
         </div>
-        <div class="slide">
-            <div class="intro">
-                <h1>国宝-思博</h1>
-                <p>这人没救了哈哈哈哈</p>
+        <div class="s1-mask">
+            <div class="s1-confirm-wrap s1-girl-wrap">
+                <p class="s1-answer">妾身来了，先看个小视频吧！</p>
+                <span class="s1-image-girl"></span>
             </div>
-        </div>
-        <div class="slide">
-            <div class="intro">
-                <h1>活宝-思润</h1>
-                <p>这人没救了哈哈哈哈</p>
-            </div>
-        </div>
-        <div class="slide">
-            <div class="intro">
-                <h1>码神-子皓</h1>
-                <p>这人没救了哈哈哈哈</p>
-            </div>
-        </div>
-        <div class="slide">
-            <div class="intro">
-                <h1>美神-雨薇</h1>
-                <p>这人没救了哈哈哈哈</p>
-            </div>
-        </div>
-        <div class="slide">
-            <div class="intro">
-                <h1>姓粗-佳莹</h1>
-                <p>这人没救了哈哈哈哈</p>
+            <div class="s1-confirm-wrap s1-boy-wrap">
+                <p class="s1-answer">吾来了，先看个小视频吧！</p>
+                <span class="s1-image-boy"></span>
             </div>
         </div>
     </div>
@@ -99,7 +182,7 @@
 <script type="text/javascript">
     $(document).ready(function() {
         $('#fullpage').fullpage({
-            sectionsColor: ['#1bbc9b', '#4BBFC3', '#7BAABE', 'whitesmoke', '#ccddff'],
+            sectionsColor: ['#FFFFFF', '#FFFFFF', '#FFFFFF', 'FFFFFF', '#FFFFFF'],
             anchors: ['firstPage', 'secondPage', '3rdPage', '4thpage', 'lastPage'],
             menu: '#menu',
             css3: true,
