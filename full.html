@@ -9,13 +9,91 @@
     <link rel="stylesheet" type="text/css" href="https://cdn.bootcss.com/fullPage.js/2.9.4/jquery.fullpage.css" />
     <link rel="dns-prefetch" href="https://cdn.bootcss.com/">
     <style>
-    /*.fp-controlArrow.fp-next {
-            border-width: 8.5px 0 8.5px 14px;
+/* loading */
+    #loading {
+        background-color: rgb(155, 0, 0);
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+        text-align: center;
+        animation: fade 0.5s ease-out 3.5s forwards;
+    }
+    @keyframes fade {
+        from {
+            /*opacity: 1;*/
+            transform: translateY(0);
         }
-        .fp-controlArrow.fp-prev {
-            border-width: 8.5px 14px 8.5px 0;
-        }*/
-
+        to {
+            /*opacity: 0;*/
+            transform: translateY(-100%);
+        }
+    }
+    .loading-ball {
+        display: inline-block;
+        height: 100px;
+        width: 100px;
+        background: url(image/loading-ball.png) no-repeat;
+        background-size: contain;
+        margin-top: 40%;
+        position: relative;
+        animation: ball-jump 0.8s ease-out infinite;
+        transform-origin: bottom;
+    }
+    @keyframes ball-jump {
+        0% {
+            transform: translateY(-30px);
+        }
+        40% {
+            transform: translateY(-2px) scaleY(1);
+        }
+        45% {
+            transform: translateY(0px) scaleY(0.9);
+        }
+        55% {
+            transform: translateY(0px) scaleY(0.9);
+        }
+        60% {
+            transform: translateY(-2px) scaleY(1);
+        }
+        100% {
+            transform: translateY(-30px);
+        }
+    }
+    .loading-progress {
+        height: 3px;
+        width: 200px;
+        background: white;
+        display: inline-block;
+        margin: 40px 0;
+        position: relative;
+    }
+    .loading-progress:after {
+        content: '';
+        display: inline-block;
+        height: 3px;
+        width: 200px;
+        transform: scaleX(0.02);
+        background-color: rgb(255, 235, 86);
+        top: 0;
+        position: absolute;
+        left: 0;
+        transform-origin: left;
+        animation: 2s cubic-bezier(0, 0.51, 0.98, 0.48) 0.5s ani-loading;
+        animation-fill-mode: forwards;
+    }
+    @keyframes ani-loading {
+        from {
+            transform: scaleX(0.02);
+            background-color: rgb(255, 235, 86);
+        }
+        to {
+            transform: scaleX(1);
+            background-color: rgb(205, 132, 22);
+        }
+    }
     #section0,
     #section1,
     #section2,
@@ -23,7 +101,7 @@
         background-repeat: no-repeat;
         background-size: cover;
     }
-
+/* s0 */
     #section0 {
         background-image: url(image/1-poster.jpg);
     }
@@ -32,12 +110,12 @@
     .s0-door-right {
         background-size: cover;
         background-repeat: no-repeat;
-        width: 50%;
+        width: 51%;
         position: absolute;
         height: 100%;
         top: 0;
         left: 0;
-        animation: 0.5s ease-in-out 1.5s;
+        animation: 0.5s ease-in-out 6s;
         animation-fill-mode: forwards;
     }
 
@@ -77,15 +155,15 @@
         transform: translateX(-50%);
         left: 50%;
         top: 60%;
-        animation: 0.5s ease-in-out go-down;
-        animation-fill-mode: forwards;
+        animation: 0.5s ease-in-out 4.5s go-down;
+        animation-fill-mode: backwards;
         transform-origin: right;
     }
 
     @keyframes go-down {
         from {
             transform: scale(2) ;
-            opacity: 0.3;
+            opacity: 0;
         }
         to {
             transform: scale(1) translateX(-50%);
@@ -100,7 +178,7 @@
         width: 50%;
         height: 100%;
         position: absolute;
-        animation: 0.5s ease-in-out 1.5s;
+        animation: 0.5s ease-in-out 6s;
         animation-name: slide-left;
         animation-fill-mode: forwards;
     }
@@ -115,7 +193,7 @@
     #section1 {
         background-image: url(image/2-poster.jpg);
     }
-
+/* s1 */
     .s1-confirm-wrap {
         margin: 25% 20px 0 20px;
         padding: 20px 40px;
@@ -135,7 +213,7 @@
 
     .s1-question {
         margin: 0 0 10px;
-        font-size: 20px;
+        font-size: 16px;
         line-height: 1.5;
     }
 
@@ -144,7 +222,7 @@
         border: 1px solid rgba(0, 0, 0, 0.7);
         border-radius: 10px;
         background: white;
-        font-size: 18px;
+        font-size: 16px;
         display: inline-block;
         width: 100px;
         text-align: center;
@@ -206,6 +284,7 @@
         background-image: url(image/2-girl.png);
         right: 0;
     }
+/* s2 */
     @media screen and (orientation: portrait) {
         #s2-video {
             width: 100vh;
@@ -229,6 +308,7 @@
             top: 0;
         }
     }
+/* s3 */
     .s3-wrap {
         margin: 25% 20px 0 20px;
         min-height: 100px;
@@ -270,12 +350,21 @@
         padding-bottom: 55.6%;
         position: absolute;
         display: inline-block;
+        bottom: 10%;
     }
     
     </style>
 </head>
 
 <body>
+    <div id="loading">
+        <div class="loading-ball"></div>
+        <div class="loading-progress-wrap">
+            <div class="loading-progress"></div>
+        </div>
+        <!-- <span class="s3-title"></span> -->
+        
+    </div>
     <div id="fullpage">
         <div class="section active" id="section0">
             <div class="s0-door-left"></div>
@@ -304,7 +393,7 @@
             </div>
         </div>
         <div class="section" id="section2">
-            <video src="image/pre-video.mp4" controls id="s2-video"></video>
+            <video src="image/pre-video.mp4" id="s2-video"></video>
         </div>
         <div class="section" id="section3">
             <div class="s3-wrap">
@@ -339,7 +428,12 @@
             $(e.target).removeClass('show');
             $(e.target).find('.s1-confirm-wrap').removeClass('show');
             $('.s1-question-wrap').removeClass('blur');
-        })
+        });
+        $('#loading').on('webkitAnimationEnd oanimationend msAnimationEnd animationend', function(e) {
+            if(e.target.id == 'loading') {
+                $('#loading').remove();
+            }
+        });
     });
     </script>
 </body>
