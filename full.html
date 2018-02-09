@@ -6,190 +6,342 @@
     <title>全屏滚动测试demo</title>
     <meta name="author" content="JennyL of Comboom" />
     <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
-
-
     <link rel="stylesheet" type="text/css" href="https://cdn.bootcss.com/fullPage.js/2.9.4/jquery.fullpage.css" />
-
     <link rel="dns-prefetch" href="https://cdn.bootcss.com/">
-
     <style>
-        .fp-controlArrow.fp-next {
+    /*.fp-controlArrow.fp-next {
             border-width: 8.5px 0 8.5px 14px;
         }
         .fp-controlArrow.fp-prev {
             border-width: 8.5px 14px 8.5px 0;
-        }
-        #section0,
-        #section1,
-        #section2,
-        #section3 {
-            background-repeat: no-repeat;
-            background-size: cover;
-        }
+        }*/
 
-        #section0 {
-            background-image: url(image/1-poster.jpg);
+    #section0,
+    #section1,
+    #section2,
+    #section3 {
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    #section0 {
+        background-image: url(image/1-poster.jpg);
+    }
+
+    .s0-door-left,
+    .s0-door-right {
+        background-size: cover;
+        background-repeat: no-repeat;
+        width: 50%;
+        position: absolute;
+        height: 100%;
+        top: 0;
+        left: 0;
+        animation: 0.5s ease-in-out 1.5s;
+        animation-fill-mode: forwards;
+    }
+
+    .s0-door-left {
+        background-image: url(image/1-left.png);
+        animation-name: slide-left;
+    }
+
+    .s0-door-right {
+        background-image: url(image/1-right.png);
+        left: 50%;
+        animation-name: slide-right;
+    }
+
+    @keyframes slide-left {
+        from {
+            transform: translateX(0);
         }
-        .s0-door-left,
-        .s0-door-right {
-            background-size: cover;
-            background-repeat: no-repeat;
-            width: 50%;
+        to {
+            transform: translateX(-300px);
+        }
+    }
+
+    @keyframes slide-right {
+        from {
+            transform: translateX(0);
+        }
+        to {
+            transform: translateX(300px);
+        }
+    }
+
+    .s0-title {
+        position: absolute;
+        width: 90%;
+        padding-bottom: 50%;
+        transform: translateX(-50%);
+        left: 50%;
+        top: 60%;
+        animation: 0.5s ease-in-out go-down;
+        animation-fill-mode: forwards;
+        transform-origin: right;
+    }
+
+    @keyframes go-down {
+        from {
+            transform: scale(2) ;
+            opacity: 0.3;
+        }
+        to {
+            transform: scale(1) translateX(-50%);
+            opacity: 1;
+        }
+    }
+
+    .s0-title-left,
+    .s0-title-right {
+        background: url(image/1-title.png) no-repeat;
+        background-size: cover;
+        width: 50%;
+        height: 100%;
+        position: absolute;
+        animation: 0.5s ease-in-out 1.5s;
+        animation-name: slide-left;
+        animation-fill-mode: forwards;
+    }
+
+    .s0-title-right {
+        background-image: url(image/1-title.png);
+        background-position: 100% 0;
+        left: 50%;
+        animation-name: slide-right;
+    }
+
+    #section1 {
+        background-image: url(image/2-poster.jpg);
+    }
+
+    .s1-confirm-wrap {
+        margin: 25% 20px 0 20px;
+        padding: 20px 40px;
+        display: block;
+        background-color: rgba(255, 255, 255, 0.7);
+        border: 1px solid white;
+        border-radius: 10px;
+        position: absolute;
+        overflow: hidden;
+        top: 0px;
+        right: 0;
+        left: 0;
+    }
+    .s1-question-wrap.blur {
+        filter: blur(10px);
+    }
+
+    .s1-question {
+        margin: 0 0 10px;
+        font-size: 20px;
+        line-height: 1.5;
+    }
+
+    .s1-button {
+        padding: 8px;
+        border: 1px solid rgba(0, 0, 0, 0.7);
+        border-radius: 10px;
+        background: white;
+        font-size: 18px;
+        display: inline-block;
+        width: 100px;
+        text-align: center;
+    }
+
+    #s1-boy {
+        float: right;
+        right: 40px;
+    }
+
+    .s1-mask {
+        background: rgba(0, 0, 0, 0.8);
+        width: 100%;
+        height: 100%;
+        position: relative;
+        display: none;
+        opacity: 0;
+    }
+    .s1-mask.show {
+        display: block;
+        opacity: 1;
+        transition: opacity 0.2s;
+    }
+
+    .s1-mask .s1-confirm-wrap {
+        z-index: 1;
+        position: absolute;
+        right: 0;
+        left: 0;
+        overflow: hidden;
+        display: none;
+    }
+
+    .s1-mask .s1-confirm-wrap.show {
+        display: block;
+    }
+
+    .s1-answer {
+        margin: 50px 0;
+    }
+    .s1-boy-wrap .s1-answer {
+        text-align: right;
+    }
+
+    .s1-image {
+        width: 120px;
+        height: 120px;
+        background-size: contain;
+        background-repeat: no-repeat;
+        position: absolute;
+        display: inline-block;
+        bottom: 0;
+    }
+    .s1-image.s1-image-boy {
+        background-image: url(image/2-boy.png);
+        left: 0;
+    }
+    .s1-image.s1-image-girl {
+        background-image: url(image/2-girl.png);
+        right: 0;
+    }
+    @media screen and (orientation: portrait) {
+        #s2-video {
+            width: 100vh;
+            transform: rotate(90deg);
+            -webkit-transform: rotate(90deg);
+            -moz-transform: rotate(90deg);
+            height: 100vw;
             position: absolute;
-            height: 100%;
-            top: 0;
+            left: -webkit-calc(50vw - 50vh);
+            top: -webkit-calc(50vh - 50vw);
+            left: calc(50vw - 50vh);
+            top: calc(50vh - 50vw);
+        }
+    }
+    @media screen and (orientation: landscape) {
+        #s2-video {
+            width: 100vw;
+            height: 100vh;
+            position: absolute;
             left: 0;
-            animation: 0.5s ease-in-out 1s;
-            animation-fill-mode: forwards;
-        }
-        .s0-door-left {
-            background-image: url(image/1-left.png);
-            animation-name: slide-left;
-        }
-
-        .s0-door-right {
-            background-image: url(image/1-right.png);
-            left: 50%;
-            animation-name: slide-right;
-        }
-
-        @keyframes slide-left {
-            from { transform: translateX(0); }
-            to   { transform: translateX(-300px); }
-        }
-
-        @keyframes slide-right {
-            from { transform: translateX(0); }
-            to   { transform: translateX(300px); }
-        }
-        .s0-title {
-            position: absolute;
-            width: 300px;
-            height: 128px;
-            padding-bottom: 50%;
-            transform: translateX(-50%);
-            left: 50%;
-            top: 60%;
-        }
-        .s0-title-left,
-        .s0-title-right {
-            background: url(image/1-title.png) no-repeat;
-            background-size: cover;
-            width: 50%;
-            height: 50%;
-            position: absolute;
-            animation: 0.5s ease-in-out 1s;
-            animation-name: slide-left;
-            animation-fill-mode: forwards;
-        }
-        .s0-title-right {
-            background-image: url(image/1-title.png);
-            background-position: 100% 0;
-            left: 50%;
-            animation-name: slide-right;
-        }
-
-        #section1 {
-            background-image: url(image/2-poster.jpg);
-        }
-        .s1-confirm-wrap {
-            margin: -65% 20px 0 20px;
-            padding: 20px 40px;
-            display: block;
-            background-color: rgba(255, 255, 255, 0.5);
-            border: 1px solid white;
-            border-radius: 10px;
-            position: relative;
-            overflow: hidden;
-        }
-        .s1-question {
-            margin: 0 0 10px;
-            font-size: 20px;
-            line-height: 1.5;
-        }
-        .s1-button {
-            padding: 8px;
-            border: 1px solid rgba(0, 0, 0, 0.7);
-            border-radius: 10px;
-            background: white;
-            font-size: 18px;
-            display: inline-block;
-            width: 100px;
-            text-align: center;
-        }
-        #s1-boy {
-            float: right;
-            right: 40px;
-        }
-        .s1-mask {
-            background: rgba(0, 0, 0, 0.8);
-            width: 100%;
-            height: 100%;
-            position: absolute;
             top: 0;
-            left: 0;
         }
-        .s1-mask .s1-confirm-wrap {
-            z-index: 1;
-        }
+    }
+    .s3-wrap {
+        margin: 25% 20px 0 20px;
+        min-height: 100px;
+        padding: 20px 40px;
+        display: block;
+        background-color: rgba(255, 255, 255, 0.8);
+        border-radius: 10px;
+        position: absolute;
+        overflow: hidden;
+        top: 0;
+        right: 0;
+        left: 0;
+        opacity: 0.9;
+    }
+    .s3-p {
+        margin-bottom: 270px;
+        font-size: 20px;
+        line-height: 1.6;
+    }
+    .s3-image {
+        background-image: url(image/4-people.png);
+        left: 0;
+        width: 100%;
+        height: 0;
+        padding-bottom: 62.5%;
+        background-size: contain;
+        background-repeat: no-repeat;
+        position: absolute;
+        display: inline-block;
+        bottom: 0;
+    }
+    .s3-title {
+        background-image: url(image/4-title.png);
+        background-size: contain;
+        background-repeat: no-repeat;
+        left: 0;
+        width: 100%;
+        height: 0;
+        padding-bottom: 55.6%;
+        position: absolute;
+        display: inline-block;
+    }
+    
     </style>
 </head>
-<body>
-<div id="fullpage">
-    <div class="section active" id="section0">
-        <div class="s0-door-left"></div>
-        <div class="s0-door-right"></div>
-        <div class="s0-title">
-            <div class="s0-title-left"></div>
-            <div class="s0-title-right"></div>
-        </div>
-    </div>
-    <div class="section" id="section1">
-        <div class="s1-confirm-wrap">
-            <p class="s1-question">过年回家，<br>带谁上路戏最足？</p>
-            <span class="s1-button" id="s1-girl">A. 太子妃</span>
-            <span class="s1-button" id="s1-boy">B. 太子</span>
-        </div>
-        <div class="s1-mask">
-            <div class="s1-confirm-wrap s1-girl-wrap">
-                <p class="s1-answer">妾身来了，先看个小视频吧！</p>
-                <span class="s1-image-girl"></span>
-            </div>
-            <div class="s1-confirm-wrap s1-boy-wrap">
-                <p class="s1-answer">吾来了，先看个小视频吧！</p>
-                <span class="s1-image-boy"></span>
-            </div>
-        </div>
-    </div>
-    <div class="section" id="section2">
-        <div class="intro">
-            <h1>我们的工作</h1>
-            <p>脑洞大过天，写码如有神</p>
-        </div>
-    </div>
-    <div class="section" id="section3">
-        <div class="intro">
-            <h1>我们的目标</h1>
-            <p>
-                跟靠谱的小伙伴，做出H5的标杆产品。
-            </p>
-        </div>
-    </div>
-</div>
 
-<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
-<script type="text/javascript" src="https://cdn.bootcss.com/fullPage.js/2.9.4/jquery.fullpage.min.js"></script>
-<script type="text/javascript">
+<body>
+    <div id="fullpage">
+        <div class="section active" id="section0">
+            <div class="s0-door-left"></div>
+            <div class="s0-door-right"></div>
+            <div class="s0-title">
+                <div class="s0-title-left"></div>
+                <div class="s0-title-right"></div>
+            </div>
+        </div>
+        <div class="section" id="section1">
+            <div class="s1-confirm-wrap s1-question-wrap">
+                <p class="s1-question">过年回家，
+                    <br>带谁上路戏最足？</p>
+                <span class="s1-button" id="s1-girl">A. 太子妃</span>
+                <span class="s1-button" id="s1-boy">B. 太子</span>
+            </div>
+            <div class="s1-mask">
+                <div class="s1-confirm-wrap s1-girl-wrap">
+                    <p class="s1-answer">妾身来了，先看个小视频吧！</p>
+                    <span class="s1-image s1-image-girl"></span>
+                </div>
+                <div class="s1-confirm-wrap s1-boy-wrap">
+                    <p class="s1-answer">吾来了，先看个小视频吧！</p>
+                    <span class="s1-image s1-image-boy"></span>
+                </div>
+            </div>
+        </div>
+        <div class="section" id="section2">
+            <video src="image/pre-video.mp4" controls id="s2-video"></video>
+        </div>
+        <div class="section" id="section3">
+            <div class="s3-wrap">
+                <p class="s3-p">
+                    田家占气候<br>共说此年丰。
+                    <span class="s3-image"></span>
+                </p>
+                
+            </div>
+            <span class="s3-title"></span>
+        </div>
+    </div>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdn.bootcss.com/fullPage.js/2.9.4/jquery.fullpage.min.js"></script>
+    <script type="text/javascript">
     $(document).ready(function() {
         $('#fullpage').fullpage({
-            sectionsColor: ['#FFFFFF', '#FFFFFF', '#FFFFFF', 'FFFFFF', '#FFFFFF'],
-            anchors: ['firstPage', 'secondPage', '3rdPage', '4thpage', 'lastPage'],
+            sectionsColor: ['#FFFFFF', '#FFFFFF', '#000000', '#000000'],
+            anchors: ['s0', 's1', 's2', 's3'],
             menu: '#menu',
             css3: true,
             scrollingSpeed: 300
         });
-    });
-</script>
+        $('.s1-button').on('click', function(e) {
+            var id = e.target.id;
+            $('.s1-mask').addClass('show');
+            $('.' + id + '-wrap').addClass('show');
+            $('.s1-question-wrap').addClass('blur');
 
+        });
+        $('.s1-mask').on('click', function(e){
+            $(e.target).removeClass('show');
+            $(e.target).find('.s1-confirm-wrap').removeClass('show');
+            $('.s1-question-wrap').removeClass('blur');
+        })
+    });
+    </script>
 </body>
+
 </html>
