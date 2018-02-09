@@ -428,8 +428,8 @@
 
         });
         $('.s1-mask').on('click', function(e){
-            $(e.target).removeClass('show');
-            $(e.target).find('.s1-confirm-wrap').removeClass('show');
+            $('.s1-mask').removeClass('show');
+            $('.s1-mask').find('.s1-confirm-wrap').removeClass('show');
             $('.s1-question-wrap').removeClass('blur');
         });
         $('#loading').on('webkitAnimationEnd oanimationend msAnimationEnd animationend', function(e) {
