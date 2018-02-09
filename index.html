@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>一份来自《太子书院》的新春祝福</title>
+    <meta name="author" content="JennyL of Comboom" />
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="https://cdn.bootcss.com/fullPage.js/2.9.4/jquery.fullpage.css" />
+    <link rel="dns-prefetch" href="https://cdn.bootcss.com/">
+    <style>
+/* loading */
+    #loading {
+        background-color: rgb(155, 0, 0);
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+        text-align: center;
+        animation: fade 0.5s ease-out 4.5s forwards;
+    }
+    @keyframes fade {
+        from {
+            /*opacity: 1;*/
+            transform: translateY(0);
+        }
+        to {
+            /*opacity: 0;*/
+            transform: translateY(-100%);
+        }
+    }
+    .loading-ball {
+        display: inline-block;
+        height: 100px;
+        width: 100px;
+        background: url(image/loading-ball.png) no-repeat;
+        background-size: contain;
+        margin-top: 40%;
+        position: relative;
+        animation: ball-jump 0.8s ease-out infinite;
+        transform-origin: bottom;
+    }
+    @keyframes ball-jump {
+        0% {
+            transform: translateY(-30px);
+        }
+        40% {
+            transform: translateY(-2px) scaleY(1);
+        }
+        45% {
+            transform: translateY(0px) scaleY(0.9);
+        }
+        55% {
+            transform: translateY(0px) scaleY(0.9);
+        }
+        60% {
+            transform: translateY(-2px) scaleY(1);
+        }
+        100% {
+            transform: translateY(-30px);
+        }
+    }
+    .loading-progress {
+        height: 3px;
+        width: 200px;
+        background: white;
+        display: inline-block;
+        margin: 40px 0;
+        position: relative;
+    }
+    .loading-progress:after {
+        content: '';
+        display: inline-block;
+        height: 3px;
+        width: 200px;
+        transform: scaleX(0.02);
+        background-color: rgb(255, 235, 86);
+        top: 0;
+        position: absolute;
+        left: 0;
+        transform-origin: left;
+        animation: 3s cubic-bezier(0, 0.51, 0.98, 0.48) 0.5s ani-loading;
+        animation-fill-mode: forwards;
+    }
+    @keyframes ani-loading {
+        from {
+            transform: scaleX(0.02);
+            background-color: rgb(255, 235, 86);
+        }
+        to {
+            transform: scaleX(1);
+            background-color: rgb(205, 132, 22);
+        }
+    }
+    #section0,
+    #section1,
+    #section2,
+    #section3 {
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+/* s0 */
+    #section0 {
+        background-image: url(image/1-poster.jpg);
+    }
+
+    .s0-door-left,
+    .s0-door-right {
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-color: #992313;
+        width: 51%;
+        position: absolute;
+        height: 100%;
+        top: 0;
+        left: 0;
+        animation: 0.5s ease-in-out 6s;
+        animation-fill-mode: forwards;
+    }
+
+    .s0-door-left {
+        background-image: url(image/1-left.png);
+        animation-name: slide-left;
+    }
+
+    .s0-door-right {
+        background-image: url(image/1-right.png);
+        left: 50%;
+        animation-name: slide-right;
+    }
+
+    @keyframes slide-left {
+        from {
+            transform: translateX(0);
+        }
+        to {
+            transform: translateX(-300px);
+        }
+    }
+
+    @keyframes slide-right {
+        from {
+            transform: translateX(0);
+        }
+        to {
+            transform: translateX(300px);
+        }
+    }
+
+    .s0-title {
+        position: absolute;
+        width: 90%;
+        padding-bottom: 50%;
+        transform: translateX(-50%);
+        left: 50%;
+        top: 60%;
+        animation: 0.5s ease-in-out 4.5s go-down;
+        animation-fill-mode: backwards;
+        transform-origin: right;
+    }
+
+    @keyframes go-down {
+        from {
+            transform: scale(2) ;
+            opacity: 0;
+        }
+        to {
+            transform: scale(1) translateX(-50%);
+            opacity: 1;
+        }
+    }
+
+    .s0-title-left,
+    .s0-title-right {
+        background: url(image/1-title.png) no-repeat;
+        background-size: cover;
+        width: 50%;
+        height: 100%;
+        position: absolute;
+        animation: 0.5s ease-in-out 6s;
+        animation-name: slide-left;
+        animation-fill-mode: forwards;
+    }
+
+    .s0-title-right {
+        background-image: url(image/1-title.png);
+        background-position: 100% 0;
+        left: 50%;
+        animation-name: slide-right;
+    }
+
+    #section1 {
+        background-image: url(image/2-poster.jpg);
+    }
+/* s1 */
+    .s1-confirm-wrap {
+        margin: 25% 20px 0 20px;
+        padding: 20px 40px;
+        display: block;
+        background-color: rgba(255, 255, 255, 0.7);
+        border: 1px solid white;
+        border-radius: 10px;
+        position: absolute;
+        overflow: hidden;
+        top: 0px;
+        right: 0;
+        left: 0;
+    }
+    .s1-question-wrap.blur {
+        filter: blur(10px);
+    }
+
+    .s1-question {
+        margin: 0 0 10px;
+        font-size: 16px;
+        line-height: 1.5;
+    }
+
+    .s1-button {
+        padding: 8px;
+        border: 1px solid rgba(0, 0, 0, 0.7);
+        border-radius: 10px;
+        background: white;
+        font-size: 16px;
+        display: inline-block;
+        width: 100px;
+        text-align: center;
+    }
+
+    #s1-boy {
+        float: right;
+        right: 40px;
+    }
+
+    .s1-mask {
+        background: rgba(0, 0, 0, 0.8);
+        width: 100%;
+        height: 100%;
+        position: relative;
+        display: none;
+        opacity: 0;
+    }
+    .s1-mask.show {
+        display: block;
+        opacity: 1;
+        transition: opacity 0.2s;
+    }
+
+    .s1-mask .s1-confirm-wrap {
+        z-index: 1;
+        position: absolute;
+        right: 0;
+        left: 0;
+        overflow: hidden;
+        display: none;
+    }
+
+    .s1-mask .s1-confirm-wrap.show {
+        display: block;
+    }
+
+    .s1-answer {
+        margin: 50px 0;
+    }
+    .s1-boy-wrap .s1-answer {
+        text-align: right;
+    }
+
+    .s1-image {
+        width: 120px;
+        height: 120px;
+        background-size: contain;
+        background-repeat: no-repeat;
+        position: absolute;
+        display: inline-block;
+        bottom: 0;
+    }
+    .s1-image.s1-image-boy {
+        background-image: url(image/2-boy.png);
+        left: 0;
+    }
+    .s1-image.s1-image-girl {
+        background-image: url(image/2-girl.png);
+        right: 0;
+    }
+/* s2 */
+    @media screen and (orientation: portrait) {
+        #s2-video {
+            width: 100vh;
+            transform: rotate(90deg);
+            -webkit-transform: rotate(90deg);
+            -moz-transform: rotate(90deg);
+            height: 100vw;
+            position: absolute;
+            left: -webkit-calc(50vw - 50vh);
+            top: -webkit-calc(50vh - 50vw);
+            left: calc(50vw - 50vh);
+            top: calc(50vh - 50vw);
+        }
+    }
+    @media screen and (orientation: landscape) {
+        #s2-video {
+            width: 100vw;
+            height: 100vh;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+    }
+/* s3 */
+    .s3-wrap {
+        margin: 25% 20px 0 20px;
+        min-height: 100px;
+        padding: 20px 0;
+        display: block;
+        background-color: rgba(255, 255, 255, 0.8);
+        border-radius: 10px;
+        position: absolute;
+        overflow: hidden;
+        top: 0;
+        right: 0;
+        left: 0;
+        bottom: 30%;
+        opacity: 0.9;
+    }
+    .s3-p {
+        font-size: 20px;
+        line-height: 1.6;
+        margin: 20px 40px;
+    }
+    .s3-image {
+        background-image: url(image/4-people.png);
+        left: 0;
+        width: 100%;
+        height: 0;
+        padding-bottom: 62.5%;
+        background-size: contain;
+        background-repeat: no-repeat;
+        position: absolute;
+        display: inline-block;
+        bottom: 0;
+    }
+    .s3-title {
+        background-image: url(image/4-title.png);
+        background-size: contain;
+        background-repeat: no-repeat;
+        left: 0;
+        width: 100%;
+        height: 0;
+        padding-bottom: 55.6%;
+        position: absolute;
+        display: inline-block;
+        bottom: 15%;
+    }
+    
+    </style>
+</head>
+
+<body>
+    <div id="loading">
+        <div class="loading-ball"></div>
+        <div class="loading-progress-wrap">
+            <div class="loading-progress"></div>
+        </div>
+    </div>
+    <div id="fullpage">
+        <div class="section active" id="section0">
+            <div class="s0-door-left"></div>
+            <div class="s0-door-right"></div>
+            <div class="s0-title">
+                <div class="s0-title-left"></div>
+                <div class="s0-title-right"></div>
+            </div>
+        </div>
+        <div class="section" id="section1">
+            <div class="s1-confirm-wrap s1-question-wrap">
+                <p class="s1-question">
+                    过年回家，
+                    <br>带谁上路戏最足？
+                </p>
+                <span class="s1-button" id="s1-girl">A. 太子妃</span>
+                <span class="s1-button" id="s1-boy">B. 太子</span>
+            </div>
+            <div class="s1-mask">
+                <div class="s1-confirm-wrap s1-girl-wrap">
+                    <p class="s1-answer">妾身来了，先看个小视频吧！</p>
+                    <span class="s1-image s1-image-girl"></span>
+                </div>
+                <div class="s1-confirm-wrap s1-boy-wrap">
+                    <p class="s1-answer">吾来了，先看个小视频吧！</p>
+                    <span class="s1-image s1-image-boy"></span>
+                </div>
+            </div>
+        </div>
+        <div class="section" id="section2">
+            <video src="image/video-3m.mp4" id="s2-video" data-autoplay controls></video>
+        </div>
+        <div class="section" id="section3">
+            <div class="s3-wrap">
+                <p class="s3-p">
+                    《太子书院》2.10<br>
+                    爱奇艺VIP会员独家上线。
+                    <span class="s3-image"></span>
+                </p>
+                
+            </div>
+            <span class="s3-title"></span>
+        </div>
+    </div>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdn.bootcss.com/fullPage.js/2.9.4/jquery.fullpage.min.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function() {
+        $('#fullpage').fullpage({
+            sectionsColor: ['#FFFFFF', '#FFFFFF', '#000000', '#000000'],
+            anchors: ['s0', 's1', 's2', 's3'],
+            menu: '#menu',
+            css3: true,
+            scrollingSpeed: 300
+        });
+        $('.s1-button').on('click', function(e) {
+            var id = e.target.id;
+            $('.s1-mask').addClass('show');
+            $('.' + id + '-wrap').addClass('show');
+            $('.s1-question-wrap').addClass('blur');
+
+        });
+        $('.s1-mask').on('click', function(e){
+            $('.s1-mask').removeClass('show');
+            $('.s1-mask').find('.s1-confirm-wrap').removeClass('show');
+            $('.s1-question-wrap').removeClass('blur');
+        });
+        $('#loading').on('webkitAnimationEnd oanimationend msAnimationEnd animationend', function(e) {
+            if(e.target.id == 'loading') {
+                $('#loading').remove();
+            }
+        });
+        /* 图片手动预加载，用于display:none 内容 */
+        function preLoadImg(arr) {
+            if(typeof(arr) == 'string') {
+                var img = new Image();
+                img.src = arr;
+            } else {
+                for (var i = 0; i < arr.length; i++) {
+                    var img = new Image();
+                    img.src = arr[i];
+                }
+            }
+        }
+        preLoadImg(["image/2-boy.png", "image/2-girl.png"]);
+
+    });
+    </script>
+    <script type="text/javascript" src="//res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+    <script>
+        wx.onMenuShareTimeline({
+            title: '这是title', // 分享标题
+            link: '', // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+            imgUrl: 'URL', // 分享图标
+            success: function () {
+            }
+        });
+    </script>
+</body>
+
+</html>
