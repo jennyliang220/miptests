@@ -395,12 +395,12 @@
             </div>
         </div>
         <div class="section" id="section2">
-            <video src="image/video-3m.mp4" id="s2-video" data-autoplay></video>
+            <video src="image/video-3m.mp4" id="s2-video" data-autoplay controls></video>
         </div>
         <div class="section" id="section3">
             <div class="s3-wrap">
                 <p class="s3-p">
-                    田家占气候<br>共说此年丰。
+                    <田家占气候<br>共说此年丰。
                     <span class="s3-image"></span>
                 </p>
                 
@@ -436,6 +436,7 @@
                 $('#loading').remove();
             }
         });
+        /* 图片手动预加载，用于display:none 内容 */
         function preLoadImg(arr) {
             if(typeof(arr) == 'string') {
                 var img = new Image();
@@ -444,7 +445,6 @@
                 for (var i = 0; i < arr.length; i++) {
                     var img = new Image();
                     img.src = arr[i];
-                    console.log(arr[i]);
                 }
             }
         }
