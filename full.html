@@ -364,6 +364,7 @@
         <div class="loading-progress-wrap">
             <div class="loading-progress"></div>
         </div>
+        <img src="image/2-poster.jpg" style="z-index: -1" />
         <!-- <span class="s3-title"></span> -->
         
     </div>
@@ -451,6 +452,16 @@
         preLoadImg(["image/2-boy.png", "image/2-girl.png"]);
 
     });
+    </script>
+    <script type="text/javascript" src="//res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+    <script>
+        wx.onMenuShareTimeline({
+            title: '这是title', // 分享标题
+            link: '', // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+            imgUrl: 'URL', // 分享图标
+            success: function () {
+            }
+        });
     </script>
 </body>
 
