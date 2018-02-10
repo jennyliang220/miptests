@@ -514,6 +514,7 @@
         $('body').on('touchstart', function() {
             if(!audioInited) {
                 audioBg.play();
+                audioInited = true;
             }
         })
         // 声音开启 关闭
