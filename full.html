@@ -477,6 +477,9 @@
             if(e.target.id == 'loading') {
                 $('#loading').remove();
             }
+            // 声音开始播放
+            audioBg.play();
+            $(".audio-paused").removeClass('show');
         });
         // 声音开启 关闭
         $('.audio-playing').on('click', function(e){
