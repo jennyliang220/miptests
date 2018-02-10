@@ -367,10 +367,10 @@
     .s3-iqiyi-link {
         display: inline-block;
         position: absolute;
-        height: 60px;
-        width: 150px;
-        top: 200px;
-        left: 100px;
+        height: 53px;
+        width: 220px;
+        top: 139px;
+        left: 50px;
     }
     .s3-image {
         background-image: url(image/4-people.png);
@@ -455,7 +455,7 @@
             <p class="powered-by"><a href="https://jennyliang220.github.io/miptests/comboom.html">Comboom</a> 提供H5技术支持</span>
         </div>
     </div>
-    <audio src="image/bg.mp3" autoplay data-autoplay></audio>
+    <audio src="image/bg.mp3"></audio>
     <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
     <script type="text/javascript" src="https://cdn.bootcss.com/fullPage.js/2.9.4/jquery.fullpage.min.js"></script>
     
@@ -471,8 +471,9 @@
             scrollingSpeed: 300
         });
         document.addEventListener("WeixinJSBridgeReady", function () { 
-            console.log('WeixinJSBridgeReady')
-            audioBg.play(); 
+            window.setTimeout(function() {
+                audioBg.play(); 
+            }, 5000)
         }, false);
         // 对话框点击
         $('.s1-button').on('click', function(e) {
@@ -524,7 +525,9 @@
             }
         }
         preLoadImg(["image/2-boy.png", "image/2-girl.png"]);
-
+        window.setTimeout(function() {
+            audioBg.play(); 
+        }, 5000)
     });
     </script>
 </body>
