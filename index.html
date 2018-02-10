@@ -478,6 +478,7 @@
     $(document).ready(function() {
         var audioBg = $('audio')[0];
         var audioState = audioBg.paused;
+        var audioInited = false;
         $('#fullpage').fullpage({
             sectionsColor: ['#FFFFFF', '#FFFFFF', '#000000', '#000000'],
             anchors: ['s0', 's1', 's2', 's3'],
@@ -507,8 +508,14 @@
         $('#loading').on('webkitAnimationEnd oanimationend msAnimationEnd animationend', function(e) {
             if(e.target.id == 'loading') {
                 $('#loading').remove();
+                audioBg.play();
             }
         });
+        $('body').on('touchstart', function() {
+            if(!audioInited) {
+                audioBg.play();
+            }
+        })
         // 声音开启 关闭
         $('.audio-playing').on('click', function(e){
             if(audioBg.paused) {
@@ -545,7 +552,6 @@
         preLoadImg(["image/2-boy.png", "image/2-girl.png", "image/2-girl-words.png", "image/2-boy-words.png"]);
         window.setTimeout(function() {
             audioBg.play(); 
-            alert('play');
         }, 5000)
     });
     </script>
