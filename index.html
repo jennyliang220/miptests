@@ -430,9 +430,8 @@
         <div class="loading-progress-wrap">
             <div class="loading-progress"></div>
         </div>
-        <!-- <div class="nodisplay">
-            <img src="image/share-icon.jpg" width="300" height="300">
-        </div> -->
+    </div>
+    <div style="position: fixed; width:80%; padding: 10px;background: white; z-index:9999" id="log">
     </div>
     <div class="control-widgets">
         <svg class="audio-paused" fill="#ECECEC" stroke="#000000" stroke-width="0" viewBox="0 0 100 100" style="position: fixed;width: 55px;height: 62px;right: 8px;cursor: pointer;z-index: 9900;transform: rotate(45deg);"><path d="M73,55.2H29v-9h44V55.2z"></path></svg>
@@ -485,7 +484,7 @@
             <p class="powered-by"><a href="https://jennyliang220.github.io/miptests/comboom.html">Comboom</a> 提供H5技术支持</span>
         </div>
     </div>
-    <audio src="image/bg.mp3"></audio>
+    <audio src="image/bgm.mp3"></audio>
     <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
     <script type="text/javascript" src="https://cdn.bootcss.com/fullPage.js/2.9.4/jquery.fullpage.min.js"></script>
     
@@ -505,6 +504,7 @@
         document.addEventListener("WeixinJSBridgeReady", function () { 
             window.setTimeout(function() {
                 audioBg.play(); 
+                $('#log').append('WeixinJSBridgeReady +3000\n');
             }, 3000)
         }, false);
         // 对话框点击
@@ -525,10 +525,12 @@
             if(e.target.id == 'loading') {
                 $('#loading').remove();
                 audioBg.play();
+                $('#log').append('webkitAnimationEnd play\n');
             }
         });
         $('body').on('touchstart', function() {
             if(!audioInited) {
+                $('#log').append('touchstart play\n');
                 audioBg.play();
                 audioInited = true;
             }
@@ -567,9 +569,14 @@
             }
         }
         preLoadImg(["image/2-boy.png", "image/2-girl.png", "image/2-girl-words.png", "image/2-boy-words.png"]);
+        // XXX: 音乐自动播放
         window.setTimeout(function() {
+            $('#log').append('window.setTimeout 5000\n');
             audioBg.play(); 
         }, 5000)
+        document.querySelector('audio').addEventListener('canplay', function() {
+            $('#log').append('canplay\n\n');
+        }, false);
     });
     </script>
     <script>
