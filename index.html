@@ -166,6 +166,16 @@
         left: 50%;
         /*animation-name: slide-right;*/
     }
+    .ani-slide-right {
+        animation: 0.5s ease-in-out 0.5s;
+        animation-fill-mode: forwards;
+        animation-name: slide-right;
+    }
+    .ani-slide-left {
+        animation: 0.5s ease-in-out 0.5s;
+        animation-fill-mode: forwards;
+        animation-name: slide-left;
+    }
 
     @keyframes slide-left {
         from {
@@ -520,15 +530,19 @@
                 audioBg.play();
             }
         });
-        $('.s0-door-left').add($('.s0-door-right')).one('touchstart', function(e) {
+        $('.s0-door-left').add($('.s0-door-right')).add($('.s0-title')).on('touchstart', function(e) {
             audioBg.play();
-            $('.s0-door-left').add($('.s0-title-left')).css('animation-name', 'slide-left');
-            $('.s0-door-right').add($('.s0-title-right')).css('animation-name', 'slide-right');
+            console.log('touchstart')
+            $('.s0-door-left').add($('.s0-title-left')).addClass('ani-slide-left')
+            $('.s0-door-right').add($('.s0-title-right')).addClass('ani-slide-right')
             e.preventDefault();
             e.stopPropagation();
-        }).on('touchend', function(e) {
+        }).on('touchmove', function(e) {
+
+            console.log('touchmove')
             e.preventDefault();
             e.stopPropagation();
+            return false;
         });
         // 声音开启 关闭
         $('.audio-playing').on('click', function(e){
