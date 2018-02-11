@@ -484,11 +484,11 @@
             <p class="powered-by"><a href="https://jennyliang220.github.io/miptests/comboom.html">Comboom</a> 提供H5技术支持</span>
         </div>
     </div>
-    <audio src="image/bgm.mp3"></audio>
+    <audio preload autoplay src="image/bgm.mp3"></audio>
     <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
     <script type="text/javascript" src="https://cdn.bootcss.com/fullPage.js/2.9.4/jquery.fullpage.min.js"></script>
     
-    <script src="https://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script> 
+    <!-- <script src="https://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>  -->
     <script type="text/javascript">
     $(document).ready(function() {
         var audioBg = $('audio')[0];
@@ -501,12 +501,6 @@
             css3: true,
             scrollingSpeed: 300
         });
-        document.addEventListener("WeixinJSBridgeReady", function () { 
-            window.setTimeout(function() {
-                audioBg.play(); 
-                $('#log').append('WeixinJSBridgeReady +3000\n');
-            }, 3000)
-        }, false);
         // 对话框点击
         $('.s1-button').on('click', function(e) {
             var id = e.target.id;
@@ -573,9 +567,16 @@
         window.setTimeout(function() {
             $('#log').append('window.setTimeout 5000\n');
             audioBg.play(); 
-        }, 5000)
+        }, 5000);
         document.querySelector('audio').addEventListener('canplay', function() {
-            $('#log').append('canplay\n\n');
+            $('#log').append('canplay，play!\n\n');
+            audioBg.play(); 
+        }, false);
+        document.addEventListener("WeixinJSBridgeReady", function () { 
+            window.setTimeout(function() {
+                audioBg.play(); 
+                $('#log').append('WeixinJSBridgeReady +3000\n');
+            }, 3000)
         }, false);
     });
     </script>
