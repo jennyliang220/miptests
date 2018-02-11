@@ -151,7 +151,7 @@
         height: 100%;
         top: 0;
         left: 0;
-        animation: 0.5s ease-in-out 7s;
+        animation: 0.5s ease-in-out 0;
         animation-fill-mode: forwards;
         /*z-index: 9000;*/
     }
@@ -521,11 +521,13 @@
                 $('#log').append('webkitAnimationEnd play\n');
             }
         });
-        $('.s0-door-left').add('.s0-door-right').one('touchstart', function() {
+        $('.s0-door-left').add('.s0-door-right').one('touchstart', function(e) {
             $('#log').append('touchstart play\n');
             audioBg.play();
             $('.s0-door-left').add('.s0-title-left').css('animation-name', 'slide-left');
             $('.s0-door-right').add('.s0-title-right').css('animation-name', 'slide-right');
+            e.preventDefault();
+            e.stopPropagation();
         })
         // 声音开启 关闭
         $('.audio-playing').on('click', function(e){
