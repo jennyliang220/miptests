@@ -431,7 +431,7 @@
             <div class="loading-progress"></div>
         </div>
     </div>
-    <div style="position: fixed; width:80%; padding: 10px;background: white; z-index:9999" id="log">
+    <!-- <div style="position: fixed; width:80%; padding: 10px;background: white; z-index:9999" id="log"> -->
     </div>
     <div class="control-widgets">
         <svg class="audio-paused" fill="#ECECEC" stroke="#000000" stroke-width="0" viewBox="0 0 100 100" style="position: fixed;width: 55px;height: 62px;right: 8px;cursor: pointer;z-index: 9900;transform: rotate(45deg);"><path d="M73,55.2H29v-9h44V55.2z"></path></svg>
@@ -518,17 +518,18 @@
             if(e.target.id == 'loading') {
                 $('#loading').remove();
                 audioBg.play();
-                $('#log').append('webkitAnimationEnd play\n');
             }
         });
         $('.s0-door-left').add($('.s0-door-right')).one('touchstart', function(e) {
-            $('#log').append('touchstart play\n');
             audioBg.play();
             $('.s0-door-left').add($('.s0-title-left')).css('animation-name', 'slide-left');
             $('.s0-door-right').add($('.s0-title-right')).css('animation-name', 'slide-right');
             e.preventDefault();
             e.stopPropagation();
-        })
+        }).on('touchend', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+        });
         // 声音开启 关闭
         $('.audio-playing').on('click', function(e){
             if(audioBg.paused) {
@@ -579,17 +580,14 @@
         preLoad("image/bgm.mp3", 'audio');
         // XXX: 音乐自动播放
         window.setTimeout(function() {
-            $('#log').append('window.setTimeout 5000\n');
             audioBg.play(); 
         }, 5000);
         document.querySelector('audio').addEventListener('canplay', function() {
-            $('#log').append('canplay，play!\n\n');
             audioBg.play(); 
         }, false);
         document.addEventListener("WeixinJSBridgeReady", function () { 
             window.setTimeout(function() {
                 audioBg.play(); 
-                $('#log').append('WeixinJSBridgeReady +3000\n');
             }, 3000)
         }, false);
 
