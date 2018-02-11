@@ -153,18 +153,18 @@
         left: 0;
         animation: 0.5s ease-in-out 7s;
         animation-fill-mode: forwards;
-        z-index: 9000;
+        /*z-index: 9000;*/
     }
 
     .s0-door-left {
         background-image: url(image/1-left.png);
-        animation-name: slide-left;
+        /*animation-name: slide-left;*/
     }
 
     .s0-door-right {
         background-image: url(image/1-right.png);
         left: 50%;
-        animation-name: slide-right;
+        /*animation-name: slide-right;*/
     }
 
     @keyframes slide-left {
@@ -216,8 +216,8 @@
         width: 50%;
         height: 100%;
         position: absolute;
-        animation: 0.5s ease-in-out 7s;
-        animation-name: slide-left;
+        animation: 0.5s ease-in-out 0;
+        /*animation-name: slide-left;*/
         animation-fill-mode: forwards;
     }
 
@@ -225,7 +225,7 @@
         background-image: url(image/1-title.png);
         background-position: 100% 0;
         left: 50%;
-        animation-name: slide-right;
+        /*animation-name: slide-right;*/
     }
 
     #section1 {
@@ -493,7 +493,6 @@
     $(document).ready(function() {
         var audioBg = $('audio')[0];
         var audioState = audioBg.paused;
-        var audioInited = false;
         $('#fullpage').fullpage({
             sectionsColor: ['#FFFFFF', '#FFFFFF', '#000000', '#000000'],
             anchors: ['s0', 's1', 's2', 's3'],
@@ -522,12 +521,11 @@
                 $('#log').append('webkitAnimationEnd play\n');
             }
         });
-        $('body').on('touchstart', function() {
-            if(!audioInited) {
-                $('#log').append('touchstart play\n');
-                audioBg.play();
-                audioInited = true;
-            }
+        $('.s0-door-left').add('.s0-door-right').one('touchstart', function() {
+            $('#log').append('touchstart play\n');
+            audioBg.play();
+            $('.s0-door-left').add('.s0-title-left').css('animation-name', 'slide-left');
+            $('.s0-door-right').add('.s0-title-right').css('animation-name', 'slide-right');
         })
         // 声音开启 关闭
         $('.audio-playing').on('click', function(e){
