@@ -551,18 +551,32 @@
             }
         });
         /* 图片手动预加载，用于display:none 内容 */
-        function preLoadImg(arr) {
-            if(typeof(arr) == 'string') {
-                var img = new Image();
-                img.src = arr;
-            } else {
-                for (var i = 0; i < arr.length; i++) {
+        function preLoad(arr, type) {
+            if (typeof(arr) == 'string') {
+                if(type == "image") {
                     var img = new Image();
-                    img.src = arr[i];
+                    img.src = arr;
+                }
+                else if (type == "audio") {
+                    var audio = new Audio();
+                    audio.src = arr;
+                }
+            } else {
+                if (typeof(arr) == 'string') {
+                    for (var i = 0; i < arr.length; i++) {
+                        var img = new Image();
+                        img.src = arr[i];
+                    }
+                }else if (type == "audio") {
+                    for (var i = 0; i < arr.length; i++) {
+                        var audio = new Audio();
+                        audio.src = arr;
+                    }
                 }
             }
         }
-        preLoadImg(["image/2-boy.png", "image/2-girl.png", "image/2-girl-words.png", "image/2-boy-words.png"]);
+        preLoad(["image/2-boy.png", "image/2-girl.png", "image/2-girl-words.png", "image/2-boy-words.png"], 'image');
+        preLoad("image/bgm.mp3", 'audio');
         // XXX: 音乐自动播放
         window.setTimeout(function() {
             $('#log').append('window.setTimeout 5000\n');
@@ -578,6 +592,7 @@
                 $('#log').append('WeixinJSBridgeReady +3000\n');
             }, 3000)
         }, false);
+
     });
     </script>
     <script>
