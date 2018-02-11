@@ -601,6 +601,47 @@
             }, 3000)
         }, false);
 
+        // // 微信分享配置
+        // wx.config({
+        //     appId: 'wx18159705a75ad067',
+        //     timestamp: <?php echo $signPackage["timestamp"];?>,
+        //     nonceStr: '<?php echo $signPackage["nonceStr"];?>',
+        //     signature: '<?php echo $signPackage["signature"];?>',
+        //     jsApiList: ['onMenuShareTimeline'
+        //         'onMenuShareAppMessage'
+        //     ]
+        // });
+
+        // wx.ready(function() {
+        //     wx.onMenuShareTimeline({
+        //         title: '一份来自《太子书院》的邀请', // 分享标题
+        //         link: 'h5.comboom.cn', // 分享链接
+        //         imgUrl: 'http://h5.comboom.cn/image/share-icon.jpg', // 分享图标
+        //         success: function() {
+        //             // 用户确认分享后执行的回调函数
+        //         },
+        //         cancel: function() {
+        //             // 用户取消分享后执行的回调函数
+        //         }
+        //     });
+
+        //     wx.onMenuShareAppMessage({
+        //         title: '一份来自《太子书院》的邀请', // 分享标题
+        //         desc: '', // 分享描述
+        //         link: 'h5.comboom.cn', // 分享链接
+        //         imgUrl: 'http://h5.comboom.cn/image/share-icon.jpg', // 分享图标
+        //         type: '', // 分享类型,music、video或link，不填默认为link
+        //         dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+        //         success: function() {
+        //             // 用户确认分享后执行的回调函数
+        //         },
+        //         cancel: function() {
+        //             // 用户取消分享后执行的回调函数
+        //         }
+        //     });
+
+        // });
+
     });
     </script>
     <script>
