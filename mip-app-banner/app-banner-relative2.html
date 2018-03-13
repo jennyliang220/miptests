@@ -25,6 +25,7 @@
     }
     </style>
     <meta name="apple-itunes-app" content="app-id=876336838, app-argument=iting://open?">
+    <!-- <link rel="manifest" href="https://h5.ele.me/manifest.json"> -->
 </head>
 
 <body>
@@ -33,21 +34,24 @@
 <a href="iting://open?">安卓调起链接</a>
 <h1>下方按钮用于真正测试</h1>
 
-<h3>1. 基础调起</h3>
+<h3>2. 进阶调起</h3>
 <ul>
     <li>- ios 所有版本：调起兜底链接，打开app或appStore</li>
     <li>- </li>
     <li>- 所有情况, 调起 mipapp://open-android-scheme</li>
     <li>- 调起失败, 跳转 /android-download</li>
     <li>- </li>
-    <li>- 微信：无操作</li>
+    <li>- 微信：打开应用宝</li>
 
 </ul>
 <mip-app-banner id="my-app-banner3" layout="nodisplay">
     <script type="application/json">
         {
             "android-scheme": "iting://open?",
-            "android-download": "https://m.mipapp.com/android-download"
+            "android-download": "http://m.ximalaya.com/down?from=seo-xiongzhanghao",
+
+            "wechat-ios-yyb": "http://a.app.qq.com/o/simple.jsp?pkgname=com.baidu.searchbox",
+            "wechat-android-yyb": "http://a.app.qq.com/o/simple.jsp?pkgname=com.baidu.searchbox"
         }
     </script>
     <span open-button>打开app</span>
